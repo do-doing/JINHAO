@@ -1,0 +1,1035 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!--Bootstrap and Other Vendors-->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <!--Mechanic Styles-->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <!-- 登錄框（Login Modal） -->
+  <div class="modal fade modalBox" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModallLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title text-center" id="loginModallLabel">
+            <b>登陸框</b>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <div class="col-sm-8 col-sm-offset-2">
+                <label for="firstname" class="col-sm-2 control-label">
+                  <i class="fa fa-user"></i>
+                </label>
+                <input type="text" class="form-control" placeholder="手机号/卡号/邮箱">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-unlock-alt"></i>
+                </label>
+                <input type="password" class="form-control" placeholder="密碼">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-5 col-xs-5">
+                <div class="checkbox">
+                  <label>
+                    <p>
+                      <input type="checkbox"> 記住密碼</p>
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-3 text-right col-xs-7">
+                <div class="checkbox">
+                  <label>
+                    <a href="" class="text-warning">忘了密碼</a>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-8">
+                <button type="submit" class="btn btn-primary btn-block filled">立即登錄</button>
+                <a class="btn btn-primary btn-line btn-block res-btn">快速註冊</a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+              <p>其它方式登录:
+                <a href="">免註冊購物</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 註冊框（register Modal） -->
+  <div class="modal fade modalBox" id="resModal" tabindex="-1" role="dialog" aria-labelledby="resModallLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title text-center" id="resModal">
+            <b>快速註冊</b>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <div class="col-sm-8 col-sm-offset-2">
+                <label for="firstname" class="col-sm-2 control-label">
+                  <i class="fa fa-user"></i>
+                </label>
+                <input type="text" class="form-control" placeholder="手机号/卡号/邮箱">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-unlock-alt"></i>
+                </label>
+                <input type="password" class="form-control" placeholder="8~16位数字加字母组合密码">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-unlock-alt"></i>
+                </label>
+                <input type="password" class="form-control" placeholder="重複密碼">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-phone"></i>
+                </label>
+                <input type="text" class="form-control" placeholder="手機號">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-unlock-alt"></i>
+                </label>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="短信驗證碼">
+                  <a class="input-group-addon">
+                    獲取短信驗證碼
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-unlock-alt"></i>
+                </label>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="圖片驗證碼">
+                  <span class="input-group-addon">
+                    <img src="images/captcha.png">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-5 col-xs-5">
+                <div class="checkbox">
+                  <label>
+                    <p>
+                      <input type="checkbox"> 同意
+                      <a href="" class="text-danger">《网站条款及隐私条款》</a>
+                    </p>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-8">
+                <button type="submit" class="btn btn-primary btn-block filled">立即註冊</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+              <p>已有賬號:
+                <a class="login-btn">返回登錄</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="row" id="header">
+    <div class="row m0 top_menus">
+      <div class="container">
+        <div class="row">
+          <ul class="nav nav-pills fleft">
+            <li>
+              <a href="index.html">聯繫我們</a>
+            </li>
+            <li>
+              <a href="about.html">服務</a>
+            </li>
+            <li>
+              <a href="contact.html">400 123 123456</a>
+            </li>
+          </ul>
+          <ul class="nav nav-pills fright">
+            <li>
+              <a class="login-btn btn">登錄</a>
+            </li>
+            <li>
+              <a class="res-btn btn">註冊</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row m0 logo_line">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5 logo">
+            <a href="index.html" class="logo_a">
+              <img src="images/logo.png" alt="Furniture House">
+            </a>
+          </div>
+          <div class="col-sm-7 searchSec">
+            <div class="fleft searchForm">
+              <form action="#" method="get">
+                <div class="input-group">
+                  <input type="hidden" name="search_param" value="all" id="search_param">
+                  <input type="search" class="form-control" placeholder="輸入關鍵字">
+                  <div class="input-group-btn searchFilters">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <span id="searchFilterValue">所有種類</span>
+                      <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                      <li>
+                        <a href="#all">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- /btn-group -->
+                  <span class="input-group-btn searchIco">
+                    <button class="btn btn-default" type="submit">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </span>
+                </div>
+                <!-- /input-group -->
+              </form>
+            </div>
+            <div class="fleft wishlistCompare">
+              <ul class="nav">
+                <li>
+                  <a href="#">
+                    <i class="fa fa-heart"></i> 心願單 (3)</a>
+                </li>
+              </ul>
+            </div>
+            <div class="fleft cartCount">
+              <div class="cartCountInner row m0">
+                <i class="fa fa-shopping-cart icon fa-2x"></i>
+                <span class="badge">2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-default m0 navbar-static-top">
+      <div class="container-fluid container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+            <i class="fa fa-bars"></i> 打開菜單
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.html">珠宝系列</a>
+            </li>
+            <li>
+              <a href="about.html">黃金系列</a>
+            </li>
+            <li>
+              <a href="contact.html">婚嫁系列</a>
+            </li>
+            <li>
+              <a href="product.html">配件系列</a>
+            </li>
+            <li>
+              <a href="single-product.html">定制專區</a>
+            </li>
+            <li>
+              <a href="single-product.html">品牌故事</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <div class="row topFeatures m0">
+      <div class="container">
+        <ul class="nav nav-justified text-center">
+          <li>
+            <img src="images/icons/returns.png" alt="">7日 無條件退貨</li>
+          <li>
+            <img src="images/icons/delivery-car.png" alt="">快速發貨</li>
+          <li>
+            <img src="images/icons/tel24-7.png" alt="">24/7 客戶支持</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <!--Header-->
+
+  <section id="breadcrumbRow" class="row">
+    <h2>用戶中心</h2>
+    <div class="row pageTitle m0">
+      <div class="container">
+        <h4 class="fleft">用戶中心</h4>
+        <ul class="breadcrumb fright">
+          <li>
+            <a href="index.html">home</a>
+          </li>
+          <li class="active">用戶中心</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="userRow" class="row contentRowPad">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="sideMenu">
+            <dl>
+              <dt>个人资料</dt>
+              <dd><a href="">个人信息</a></dd>
+              <dd>安全设置</dd>
+              <dd>地址管理</dd>
+              <dd>快捷支付</dd>
+            </dl>
+            <dl>
+              <dt>我的交易</dt>
+              <dd>订单管理</dd>
+              <dd>退款售后</dd>
+              <dd>评价商品</dd>
+            </dl>
+            <dl>
+              <dt>我的资产</dt>
+              <dd>我的积分</dd>
+              <dd>优惠券</dd>
+              <dd>红包</dd>
+              <dd>账户余额</dd>
+              <dd>账单明细</dd>
+            </dl>
+            <dl>
+              <dt>我的收藏</dt>
+              <dd>收藏</dd>
+              <dd>足迹</dd>
+            </dl>
+            <dl>
+              <dt>在线客服</dt>
+              <dd>商品咨询</dd>
+              <dd>意见反馈</dd>
+              <dd>我的消息</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="col-sm-9 userCont">
+          <div class="mb100">
+            <div class="row m0">
+              <h4 class="contactHeading heading">个人资料</h4>
+            </div>
+            <div class="row m0 contactForm">
+              <form class="row m0"method="post" name="contact" action="contact_process.php">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="name">昵称 *</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="email">姓名 *</label>
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="name">性别 *</label>
+                    <div class="form-control noborder radio">
+                      <label>
+                        <input type="radio" name="sex">男</label>
+                      <label>
+                        <input type="radio" name="sex">女</label>
+                      <label>
+                        <input type="radio" name="sex">保密</label>
+                    </div>
+            
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="name">电话 *</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="email">email *</label>
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+                <button class="btn btn-primary filled" type="submit">保存修改</button>
+              </form>
+            </div>
+          </div>
+          
+          <div class="mb100">
+            <div class="row m0">
+              <h4 class="contactHeading heading">账户安全</h4>
+            </div>
+            <div class="row m0 mb30  contactForm">
+              <form class="row m0" method="post" name="contact" action="contact_process.php">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="name">原密码 *</label>
+                    <input type="text" class="form-control" placeholder="请输入原登录密码">
+                  </div>
+                 
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="email">新密码 *</label>
+                    <input type="email" class="form-control"  placeholder="由数字、字母组合">
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="email">确认密码 *</label>
+                    <input type="email" class="form-control" placeholder="请再次输入上面的密码">
+                  </div>
+                </div>
+                <button class="btn btn-primary filled" type="submit">保存修改</button>
+              </form>
+            </div>
+            <div class="row m0 contactForm">
+              <form class="row m0" method="post" name="contact" action="contact_process.php">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label for="name">验证手机 *</label>
+                    <input type="text" class="form-control" placeholder="验证手机">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4 col-xs-8">
+                    <label for="name">驗證碼 *</label>
+                    <input type="text" class="form-control" placeholder="驗證碼">
+                  </div>
+                  <div class="col-sm-2 col-xs-4">
+                    <label>獲取驗證碼</label>
+                    <input type="button" class="btn btn-primary btn-line btn-sm form-control p0" value="獲取驗證碼">
+                  </div>
+                </div>
+                
+                <button class="btn btn-primary filled" type="submit">保存修改</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="mb100">
+            <div class="row m0">
+              <h4 class="contactHeading heading">地址管理</h4>
+            </div>
+            <div class="row m0 contactForm">
+              <ul class="addList list-unstyled">
+                <li class="addItem">
+                  <div class="caption">
+                    <p>
+                      <span>
+                        <i class="fa fa-user fa-fw"></i> admin </span>
+                      <span>
+                        <i class="fa fa-phone fa-fw"></i> 13570641739</span>
+                    </p>
+                    <p>
+                      <i class="fa fa-map-marker fa-fw"></i>
+                      <span class="fsz-12">珠海市香洲区前山路62号港澳商业城（瑞华商厦）5楼511室</span>
+                    </p>
+                    <div class="text-right mt15">
+                      <span class="pull-left">
+                        <a href="#">设为默认</a>
+                      </span>
+                      <a href="#">
+                      删除</a>
+                      <a href="#">
+                       编辑</a>
+                    </div>
+                  </div>
+                </li>
+                <li class="addItem defaultAddr">
+                  <div class="caption">
+                    <p>
+                      <span>
+                        <i class="fa fa-user fa-fw"></i> admin </span>
+                      <span>
+                        <i class="fa fa-phone fa-fw"></i> 13570641739</span>
+                    </p>
+                    <p>
+                      <i class="fa fa-map-marker fa-fw"></i>
+                      <span class="fsz-12">珠海市香洲区前山路62号港澳商业城（瑞华商厦）5楼511室</span>
+                    </p>
+                    <div class="text-right mt15">
+                      <span class="pull-left">
+                        <a href="#">默认地址</a>
+                      </span>
+                      <a href="#">
+                       删除</a>
+                      <a href="#">
+                       编辑</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="row m0 mt15">
+              <h4 class="contactHeading heading">新增/修改地址</h4>
+            </div>
+            <form class="row m0" method="post" name="contact" action="contact_process.php">
+              <div class="row">
+                <div class="col-sm-6">
+                  <label for="name">收货人 *</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                  <label for="email">手机号码 *</label>
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <label for="name">地区 *</label>
+                  <div class="select">
+                    <div class="row">
+                      <div class="col-sm-3 col-xs-6">
+                        <select>
+                          <option>澳门</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-3 col-xs-6">
+                        <select>
+                          <option>澳门</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-3 col-xs-6">
+                        <select>
+                          <option>澳门</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+            
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <label for="name">电话 *</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                  <label for="email">email *</label>
+                  <input type="email" class="form-control">
+                </div>
+              </div>
+              <button class="btn btn-primary filled" type="submit">保存修改</button>
+            </form>
+          </div>
+
+          <div class="mb100">
+            <div class="row m0">
+              <h4 class="contactHeading heading">订单管理</h4>
+            </div>
+            <div class="row m0 contactForm">
+              <ul class="nav orderNav">
+                <li class="active">
+                  <a href="#tab1" data-toggle="tab" aria-expanded="true">所有订单</a>
+                </li>
+                <li class="">
+                  <a href="#tab2" data-toggle="tab" aria-expanded="false">待付款</a>
+                </li>
+                <li class="">
+                  <a href="#tab3" data-toggle="tab" aria-expanded="false">待发货</a>
+                </li>
+                <li class="">
+                  <a href="#tab4" data-toggle="tab" aria-expanded="false">待收货</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade active in" id="tab1">
+              
+                  <!--一个订单-->
+                  <div class="order-content">
+                    <div class="order-title">
+                      <div class="dd-num">订单编号：
+                        <a href="javascript:;">1601430</a>
+                        <span class="pull-right">成交时间：2015-12-20</span>
+                      </div>
+                    </div>
+                    <div class="order-item-list row">
+                      <div class="col-lg-12">
+                        <div class="row">
+                          <div class="col-xs-9">
+                            <div class="media">
+                              <a class="media-left" href="#">
+                                <img class="media-object" src="images/product/PT153804a.jpg" alt="媒体对象">
+                              </a>
+                              <div class="media-body">
+                                <h5 class="media-heading">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</h5>
+                                <p class="info-little fsz-12">颜色：12#川南玛瑙
+                                  <br>包装：裸装 </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-3 text-right">
+                            <strong class="clr-txt">$50.00 </strong>
+                            <br> ×2
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="order-item-list row">
+                      <div class="col-lg-12">
+                        <div class="row">
+                          <div class="col-xs-9">
+                            <div class="media">
+                              <a class="media-left" href="#">
+                                <img class="media-object" src="images/product/PT156994.jpg" alt="媒体对象">
+                              </a>
+                              <div class="media-body">
+                                <h5 class="media-heading">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</h5>
+                                <p class="info-little fsz-12">颜色：12#川南玛瑙
+                                  <br>包装：裸装 </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-3 text-right">
+                            <strong class="clr-txt">$50.00 </strong>
+                            <br> ×2
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="order-item-list row">
+                      <div class="col-lg-12">
+                        <div class="row">
+                          <div class="col-xs-9">
+                            <div class="media">
+                              <a class="media-left" href="#">
+                                <img class="media-object" src="images/product/PT156994.jpg" alt="媒体对象">
+                              </a>
+                              <div class="media-body">
+                                <h5 class="media-heading">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</h5>
+                                <p class="info-little fsz-12">颜色：12#川南玛瑙
+                                  <br>包装：裸装 </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xs-3 text-right">
+                            <strong class="clr-txt">$50.00 </strong>
+                            <br> ×2
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="order-right text-right clearfix">
+                      <div class="item-amount text-right">
+                        <p>总计
+                          <strong class="clr-txt">$50.00 </strong>
+                        </p>
+                      </div>
+                      <div class="item-status">
+                        <p class="order-info">
+                          <a href="#">交易成功</a>
+                        </p>
+                      </div>
+                      <div class="item-btn">
+                        <a href="#" class="btn btn-primary filled btn-sm">去付款</a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="tab-pane fade" id="tab2">
+                  <h2 class="text-center mt100">
+                    <i class="fa fa-file-text-o fa-2x"></i><br>
+                    <small>没有待收货的订单,赶紧去购物吧</small>
+                  </h2>
+                </div>
+                <div class="tab-pane fade" id="tab3">
+                  <h2 class="text-center mt100">
+                    <i class="fa fa-file-text-o fa-2x"></i>
+                    <br>
+                    <small>没有待收货的订单,赶紧去购物吧</small>
+                  </h2>
+                </div>
+                <div class="tab-pane fade" id="tab4">
+                  <h2 class="text-center mt100">
+                    <i class="fa fa-file-text-o fa-2x"></i>
+                    <br>
+                    <small>没有待收货的订单,赶紧去购物吧</small>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb100">
+            <div class="row m0">
+              <h4 class="contactHeading heading">我的收藏</h4>
+            </div>
+            <div class="row m0 contactForm">
+              <div class="order-content">
+                <div class="order-item-list row">
+                  <div class="col-lg-12">
+                    <div class="row">
+                      <div class="col-xs-9">
+                        <div class="media">
+                          <a class="media-left" href="#">
+                            <img class="media-object" src="images/product/PT153804a.jpg" alt="媒体对象">
+                          </a>
+                          <div class="media-body">
+                            <h5 class="media-heading">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</h5>
+                            <p class="info-little fsz-12">颜色：12#川南玛瑙
+                              <br>包装：裸装 </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-3 text-right">
+                        <strong class="clr-txt">$50.00 </strong>
+                        <p><a href="" class="text-danger fsz12">移除</a></p>
+                        <a href="" class="fsz12">加入購物車</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="order-item-list row">
+                  <div class="col-lg-12">
+                    <div class="row">
+                      <div class="col-xs-9">
+                        <div class="media">
+                          <a class="media-left" href="#">
+                            <img class="media-object" src="images/product/PT156994.jpg" alt="媒体对象">
+                          </a>
+                          <div class="media-body">
+                            <h5 class="media-heading">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</h5>
+                            <p class="info-little fsz-12">颜色：12#川南玛瑙
+                              <br>包装：裸装 </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-3 text-right">
+                        <strong class="clr-txt">$50.00 </strong>
+                        <p>
+                        <a href="" class="text-danger fsz12">移除</a>
+                        </p>
+                        <a href="" class="fsz12">加入購物車</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="order-item-list row">
+                  <div class="col-lg-12">
+                    <div class="row">
+                      <div class="col-xs-9">
+                        <div class="media">
+                          <a class="media-left" href="#">
+                            <img class="media-object" src="images/product/PT156994.jpg" alt="媒体对象">
+                          </a>
+                          <div class="media-body">
+                            <h5 class="media-heading">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</h5>
+                            <p class="info-little fsz-12">颜色：12#川南玛瑙
+                              <br>包装：裸装 </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-3 text-right">
+                        <strong class="clr-txt">$50.00 </strong>
+                        <p>
+                          <a href="" class="text-danger fsz12">移除</a>
+                        </p>
+                        <a href="" class="fsz12">加入購物車</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <nav aria-label="Page navigation text-center">
+                  <ul class="pagination">
+                    <li>
+                      <a href="#" aria-label="Previous">
+                        <i class="fa fa-chevron-left"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">1</a>
+                    </li>
+                    <li>
+                      <a href="#">2</a>
+                    </li>
+                    <li>
+                      <a href="#">3</a>
+                    </li>
+                    <li>
+                      <a href="#">4</a>
+                    </li>
+                    <li>
+                      <a href="#">5</a>
+                    </li>
+                    <li>
+                      <a href="#" aria-label="Next">
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="row">
+    <div class="row m0 topFooter">
+      <div class="container line1">
+        <div class="row footFeatures">
+          <div class="col-sm-4 footFeature">
+            <div class="media">
+              <div class="media-left icon">
+                <img src="images/icons/car3.png" alt="">
+              </div>
+              <div class="media-body texts">
+                <h4>Lorem ipsum dolor sit</h4>
+                <h2>consectetur adipisicing</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 footFeature">
+            <div class="media m0">
+              <div class="media-left icon">
+                <img src="images/icons/tel24-7_2.png" alt="">
+              </div>
+              <div class="media-body texts">
+                <h4>Lorem ipsum dolor sit</h4>
+                <h2>consectetur adipisicing</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 footFeature">
+            <div class="media m0">
+              <div class="media-left icon">
+                <img src="images/icons/shopping-bag2.png" alt="">
+              </div>
+              <div class="media-body texts">
+                <h4>Lorem ipsum dolor sit</h4>
+                <h2>consectetur adipisicing</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container line2">
+        <div class="row">
+          <div class="col-sm-3 widget">
+            <div class="row m0">
+              <h4>關於我們</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do e</p>
+              <ul class="list-inline">
+                <li>
+                  <a href="#">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-dribbble"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3 widget">
+            <div class="row m0">
+              <h4>網站導航</h4>
+              <ul class="nav">
+                <li>
+                  <a href="about.html">首頁</a>
+                </li>
+                <li>
+                  <a href="services.html">關於我們</a>
+                </li>
+                <li>
+                  <a href="blog.html">產品中心</a>
+                </li>
+                <li>
+                  <a href="#">聯繫我們</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3 widget">
+            <div class="row m0">
+              <h4>產品系列</h4>
+              <ul class="nav">
+                <li>
+                  <a href="#">Lorem ipsum</a>
+                </li>
+                <li>
+                  <a href="#">dolor sit</a>
+                </li>
+                <li>
+                  <a href="#">consectetur </a>
+                </li>
+                <li>
+                  <a href="#">adipisicing</a>
+                </li>
+                <li>
+                  <a href="#">sed do e</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3 widget">
+            <div class="row m0">
+              <h4>提出您的意見</h4>
+              <form action="subscriptionList.php" method="post" role="form">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                  <input type="email" class="form-control" id="subscribeEmail" name="subscribeEmail" placeholder="EMAIL 地址">
+                </div>
+                <input type="submit" class="form-control" value="發送" id="submit" name="submit">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row m0 copyRight">
+      <div class="container">
+        <div class="row">
+          <!-- <div class="fleft">Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></div> -->
+          <ul class="nav nav-pills fright">
+            <li>
+              <a href="index.html">首頁</a>
+            </li>
+            <li>
+              <a href="about.html">關於我們</a>
+            </li>
+            <li>
+              <a href="blog.html">產品中心</a>
+            </li>
+            <li>
+              <a href="contact.html">聯繫我們</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!--jQuery, Bootstrap and other vendor JS-->
+
+  <!--jQuery-->
+  <script src="js/jquery-2.1.3.min.js"></script>
+
+  <!--Bootstrap JS-->
+  <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.login-btn').click(function () {
+          $('.modalBox').modal('hide')
+          $('#loginModal').modal('show')
+        })
+        $('.res-btn').click(function () {
+          $('.modalBox').modal('hide')
+          $('#resModal').modal('show')
+        })
+      })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,951 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <!--Bootstrap and Other Vendors-->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="vendors/owl.carousel/css/owl.carousel.css">
+  <link rel="stylesheet" href="vendors/bootstrap-select/css/bootstrap-select.min.css">
+  <link rel="stylesheet" type="text/css" href="vendors/lightbox/css/lightbox.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="vendors/flexslider/flexslider.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="vendors/bootstrap-rating/bootstrap-rating.css" media="screen" />
+
+
+  <!--Mechanic Styles-->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <!-- 登錄框（Login Modal） -->
+  <div class="modal fade modalBox" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModallLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title text-center" id="loginModallLabel">
+            <b>登陸框</b>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <div class="col-sm-8 col-sm-offset-2">
+                <label for="firstname" class="col-sm-2 control-label">
+                  <i class="fa fa-user"></i>
+                </label>
+                <input type="text" class="form-control" placeholder="手机号/卡号/邮箱">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-unlock-alt"></i>
+                </label>
+                <input type="password" class="form-control" placeholder="密碼">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-5 col-xs-5">
+                <div class="checkbox">
+                  <label>
+                    <p>
+                      <input type="checkbox"> 記住密碼</p>
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-3 text-right col-xs-7">
+                <div class="checkbox">
+                  <label>
+                    <a href="" class="text-warning">忘了密碼</a>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-8">
+                <button type="submit" class="btn btn-primary btn-block filled">立即登錄</button>
+                <a class="btn btn-primary btn-line btn-block res-btn">快速註冊</a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+              <p>其它方式登录:
+                <a href="">免註冊購物</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 註冊框（register Modal） -->
+  <div class="modal fade modalBox" id="resModal" tabindex="-1" role="dialog" aria-labelledby="resModallLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title text-center" id="resModal">
+            <b>快速註冊</b>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <div class="col-sm-8 col-sm-offset-2">
+                <label for="firstname" class="col-sm-2 control-label">
+                  <i class="fa fa-user"></i>
+                </label>
+                <input type="text" class="form-control" placeholder="手机号/卡号/邮箱">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-unlock-alt"></i>
+                </label>
+                <input type="password" class="form-control" placeholder="8~16位数字加字母组合密码">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-unlock-alt"></i>
+                </label>
+                <input type="password" class="form-control" placeholder="重複密碼">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-phone"></i>
+                </label>
+                <input type="text" class="form-control" placeholder="手機號">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-unlock-alt"></i>
+                </label>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="短信驗證碼">
+                  <a class="input-group-addon">
+                    獲取短信驗證碼
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-8  col-sm-offset-2">
+                <label for="lastname" class="col-sm-2 control-label">
+                  <i class="fa fa-unlock-alt"></i>
+                </label>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="圖片驗證碼">
+                  <span class="input-group-addon">
+                    <img src="images/captcha.png">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-5 col-xs-5">
+                <div class="checkbox">
+                  <label>
+                    <p>
+                      <input type="checkbox"> 同意
+                      <a href="" class="text-danger">《网站条款及隐私条款》</a>
+                    </p>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-8">
+                <button type="submit" class="btn btn-primary btn-block filled">立即註冊</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+              <p>已有賬號:
+                <a class="login-btn">返回登錄</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="row" id="header">
+    <div class="row m0 top_menus">
+      <div class="container">
+        <div class="row">
+          <ul class="nav nav-pills fleft">
+            <li>
+              <a href="index.html">聯繫我們</a>
+            </li>
+            <li>
+              <a href="about.html">服務</a>
+            </li>
+            <li>
+              <a href="contact.html">400 123 123456</a>
+            </li>
+          </ul>
+          <ul class="nav nav-pills fright">
+            <li>
+              <a class="login-btn btn">登錄</a>
+            </li>
+            <li>
+              <a class="res-btn btn">註冊</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row m0 logo_line">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5 logo">
+            <a href="index.html" class="logo_a">
+              <img src="images/logo.png" alt="Furniture House">
+            </a>
+          </div>
+          <div class="col-sm-7 searchSec">
+            <div class="fleft searchForm">
+              <form action="#" method="get">
+                <div class="input-group">
+                  <input type="hidden" name="search_param" value="all" id="search_param">
+                  <input type="search" class="form-control" placeholder="輸入關鍵字">
+                  <div class="input-group-btn searchFilters">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <span id="searchFilterValue">所有種類</span>
+                      <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                      <li>
+                        <a href="#all">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                      <li>
+                        <a href="#">所有種類</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- /btn-group -->
+                  <span class="input-group-btn searchIco">
+                    <button class="btn btn-default" type="submit">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </span>
+                </div>
+                <!-- /input-group -->
+              </form>
+            </div>
+            <div class="fleft wishlistCompare">
+              <ul class="nav">
+                <li>
+                  <a href="#">
+                    <i class="fa fa-heart"></i> 心願單 (3)</a>
+                </li>
+              </ul>
+            </div>
+            <div class="fleft cartCount">
+              <div class="cartCountInner row m0">
+                <i class="fa fa-shopping-cart icon fa-2x"></i>
+                <span class="badge">2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-default m0 navbar-static-top">
+      <div class="container-fluid container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+            <i class="fa fa-bars"></i> 打開菜單
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.html">珠宝系列</a>
+            </li>
+            <li>
+              <a href="about.html">黃金系列</a>
+            </li>
+            <li>
+              <a href="contact.html">婚嫁系列</a>
+            </li>
+            <li>
+              <a href="product.html">配件系列</a>
+            </li>
+            <li>
+              <a href="single-product.html">定制專區</a>
+            </li>
+            <li>
+              <a href="single-product.html">品牌故事</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+    <div class="row topFeatures m0">
+      <div class="container">
+        <ul class="nav nav-justified text-center">
+          <li>
+            <img src="images/icons/returns.png" alt="">7日 無條件退貨</li>
+          <li>
+            <img src="images/icons/delivery-car.png" alt="">快速發貨</li>
+          <li>
+            <img src="images/icons/tel24-7.png" alt="">24/7 客戶支持</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <!--Header-->
+
+  <section id="breadcrumbRow" class="row">
+    <h2>產品詳情</h2>
+    <div class="row pageTitle m0">
+      <div class="container">
+        <h4 class="fleft">產品詳情</h4>
+        <ul class="breadcrumb fright">
+          <li>
+            <a href="index.html">home</a>
+          </li>
+          <li class="active">產品詳情</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="row contentRowPad">
+    <div class="container">
+      <div class="row singleProduct">
+        <div class="col-sm-7">
+          <div class="row m0 flexslider" id="productImageSlider">
+            <ul class="slides">
+              <li>
+                <img src="images/product/ME93a.jpg" alt="">
+              </li>
+              <li>
+                <img src="images/product/PT153804a.jpg" alt="">
+              </li>
+              <li>
+                <img src="images/product/NA796.jpg" alt="">
+              </li>
+              <li>
+                <img src="images/product/PT155378.jpg" alt="">
+              </li>
+              <li>
+                <img src="images/product/PT155375.jpg" alt="">
+              </li>
+              <li>
+                <img src="images/product/PT153827.jpg" alt="">
+              </li>
+              <li>
+                <img src="images/product/PT159149b.jpg" alt="">
+              </li>
+              <li>
+                <img src="images/product/PT156994.jpg" alt="">
+              </li>
+            </ul>
+          </div>
+          <div class="row m0 flexslider" id="productImageSliderNav">
+            <ul class="slides">
+              <li>
+                <img class="img-thumbnail" src="images/product/ME93a.jpg" alt="">
+              </li>
+              <li>
+                <img class="img-thumbnail" src="images/product/PT153804a.jpg" alt="">
+              </li>
+              <li>
+                <img class="img-thumbnail" src="images/product/NA796.jpg" alt="">
+              </li>
+              <li>
+                <img class="img-thumbnail" src="images/product/PT155378.jpg" alt="">
+              </li>
+              <li>
+                <img class="img-thumbnail" src="images/product/PT155375.jpg" alt="">
+              </li>
+              <li>
+                <img class="img-thumbnail" src="images/product/PT153827.jpg" alt="">
+              </li>
+              <li>
+                <img class="img-thumbnail" src="images/product/PT159149b.jpg" alt="">
+              </li>
+              <li>
+                <img class="img-thumbnail" src="images/product/PT156994.jpg" alt="">
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="row m0">
+            <h4 class="heading">时尚简约Pt950铂金镶钻石吊坠</h4>
+            <h3 class="heading price">
+              <del>$580</del>$420</h3>
+
+            <div class="row descList m0">
+              <dl class="dl-horizontal">
+                <dt>產品代碼 :</dt>
+                <dd>12312312315</dd>
+                <dt>產品代碼 :</dt>
+                <dd>12312312315</dd>
+                <dt>產品代碼 :</dt>
+                <dd>12312312315</dd>
+              </dl>
+            </div>
+            <div class="row m0 shortDesc">
+              <p class="m0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="row m0 colorSelect">
+              <h5 class="heading proAttr">顏色 :</h5>
+              <input type="radio" id="cl1" name="proColor" checked>
+              <label for="cl1">
+                <span></span>
+              </label>
+              <input type="radio" id="cl2" name="proColor">
+              <label for="cl2">
+                <span></span>
+              </label>
+              <input type="radio" id="cl3" name="proColor">
+              <label for="cl3">
+                <span></span>
+              </label>
+              <input type="radio" id="cl4" name="proColor">
+              <label for="cl4">
+                <span></span>
+              </label>
+              <input type="radio" id="cl5" name="proColor">
+              <label for="cl5">
+                <span></span>
+              </label>
+              <input type="radio" id="cl6" name="proColor">
+              <label for="cl6">
+                <span></span>
+              </label>
+            </div>
+            <div class="row m0">
+              <h5 class="heading proAttr">尺寸 :</h5>
+              <select class="selectpicker sizeSelect">
+                <option value="queen">XS</option>
+                <option value="red">S</option>
+                <option value="black">M</option>
+                <option value="white">L</option>
+              </select>
+            </div>
+            <div class="row m0">
+              <ul class="list-inline wce">
+                <li>
+                  <a href="#">
+                    <i class="fa fa-heart"></i> 加入心願單</a>
+                </li>
+              </ul>
+            </div>
+            <div class="row m0 qtyAtc">
+              <div class="fleft quantity">
+                <!-- <div class="fleft">Qty <span>=</span></div> -->
+                <div class="input-group spinner">
+                  <input type="text" class="form-control" value="2" style="height:40px">
+                  <div class="input-group-btn-vertical">
+                    <button class="btn btn-default">
+                      <i class="fa fa-angle-up"></i>
+                    </button>
+                    <button class="btn btn-default">
+                      <i class="fa fa-angle-down"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <button class="fleft btn btn-default">
+                <img src="images/icons/cart3.png" alt=""> 加入購物車</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row m0 tabRow">
+        <ul class="nav nav-tabs" role="tablist" id="shortcodeTab">
+          <li role="presentation" class="active">
+            <a href="#description" aria-controls="description" role="tab" data-toggle="tab">
+              <i class="fa fa-align-left"></i> 圖文詳情
+            </a>
+          </li>
+          <li role="presentation">
+            <a href="#review" aria-controls="review" role="tab" data-toggle="tab">
+              <i class="fa fa-thumbs-up"></i> 產品評價 (1)
+            </a>
+          </li>
+          <li role="presentation">
+            <a href="#additionInfo" aria-controls="additionInfo" role="tab" data-toggle="tab">
+              <i class="fa fa-file-text"></i> 尺寸詳情
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content shortcodeTabContent">
+          <div role="tabpanel" class="tab-pane row m0 active" id="description">
+            <div class="fleft img">
+              <img src="images/product/PT157381.jpg" alt="" class="img-responsive">
+            </div>
+            <div class="fleft desc">
+              <h5 class="heading">產品詳情</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+                eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+                consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam
+                quaerat voluptatem.</p>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane row m0" id="review">
+            <div class="row m0 reviewCount">1 review for comfortable dining table</div>
+            <div class="row m0 reviewBody">
+              <span class="bold">4</span> out of 5
+              <br>
+              <span class="bold">K Admas</span> - March 10, 2014
+              <p class="m0">Amazing Product!</p>
+            </div>
+            <div class="row m0 reviewAdd">
+              <h4 class="heading">添加評價</h4>
+              <form action="#" role="form" method="post" class="row m0 reviewForm">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="你的名字 *" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="email" class="form-control" placeholder="你的 Email *" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h4 class="heading">你的信息</h4>
+                    <textarea name="reviewText" id="reviewText" class="form-control reviewText"></textarea>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <input type="submit" class="btn btn-primary filled">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane row m0" id="additionInfo">
+            <div class="row m0 additionInfoRow">
+              <div class="fleft infoTitle">顏色</div>
+              <div class="fleft infos">Blue, Black, Red, Yellow</div>
+            </div>
+            <div class="row m0 additionInfoRow">
+              <div class="fleft infoTitle">尺寸</div>
+              <div class="fleft infos">S, M, L, XL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Tabs Row-->
+      <div class="row shortcodesRow m0">
+        <div class="row sectionTitle">
+          <h3>產品詳情1</h3>
+          <h5>product detail</h5>
+        </div>
+        <div class="col-sm-3 product">
+          <div class="productInner row m0">
+            <div class="row m0 imgHov">
+              <img src="images/product/pro1p/9.png" alt="">
+              <div class="row m0 hovArea">
+                <div class="row m0 icons">
+                  <ul class="list-inline">
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-heart"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-exchange"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-expand"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row m0 proPrice">
+                  <i class="fa fa-usd"></i>525.00</div>
+              </div>
+            </div>
+            <div class="row m0 proName">
+              <a href="single-product.html">唯爱系列爱的都市PT955铂金镶钻石戒指</a>
+            </div>
+            <div class="row m0 proPrice">
+              <i class="fa fa-usd"></i>455.00</div>
+            <div class="row m0 proBuyBtn">
+              <button class="addToCart btn">add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 product">
+          <div class="productInner row m0">
+            <div class="row m0 imgHov">
+              <img src="images/product/pro1p/10.png" alt="">
+              <div class="row m0 hovArea">
+                <div class="row m0 icons">
+                  <ul class="list-inline">
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-heart"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-exchange"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-expand"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row m0 proPrice">
+                  <i class="fa fa-usd"></i>1025.00</div>
+              </div>
+            </div>
+            <div class="row m0 proName">
+              <a href="single-product.html">唯爱系列爱的都市PT955铂金镶钻石戒指</a>
+            </div>
+            <div class="row m0 proPrice">
+              <i class="fa fa-usd"></i>455.00</div>
+            <div class="row m0 proBuyBtn">
+              <button class="addToCart btn">add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 product">
+          <div class="productInner row m0">
+            <div class="row m0 imgHov">
+              <img src="images/product/pro1p/11.png" alt="">
+              <div class="row m0 hovArea">
+                <div class="row m0 icons">
+                  <ul class="list-inline">
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-heart"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-exchange"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-expand"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row m0 proPrice">
+                  <i class="fa fa-usd"></i>725.00</div>
+              </div>
+            </div>
+            <div class="row m0 proName">
+              <a href="single-product.html">唯爱系列爱的都市PT955铂金镶钻石戒指</a>
+            </div>
+            <div class="row m0 proPrice">
+              <i class="fa fa-usd"></i>455.00</div>
+            <div class="row m0 proBuyBtn">
+              <button class="addToCart btn">add to cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 product">
+          <div class="productInner row m0">
+            <div class="row m0 imgHov">
+              <img src="images/product/pro1p/12.png" alt="">
+              <div class="row m0 hovArea">
+                <div class="row m0 icons">
+                  <ul class="list-inline">
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-heart"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-exchange"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-expand"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row m0 proPrice">
+                  <i class="fa fa-usd"></i>825.00</div>
+              </div>
+            </div>
+            <div class="row m0 proName">
+              <a href="single-product.html">唯爱系列爱的都市PT955铂金镶钻石戒指</a>
+            </div>
+            <div class="row m0 proPrice">
+              <i class="fa fa-usd"></i>455.00</div>
+            <div class="row m0 proBuyBtn">
+              <button class="addToCart btn">add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="row">
+    <div class="row m0 topFooter">
+      <div class="container line1">
+        <div class="row footFeatures">
+          <div class="col-sm-4 footFeature">
+            <div class="media">
+              <div class="media-left icon">
+                <img src="images/icons/car3.png" alt="">
+              </div>
+              <div class="media-body texts">
+                <h4>Lorem ipsum dolor sit</h4>
+                <h2>consectetur adipisicing</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 footFeature">
+            <div class="media m0">
+              <div class="media-left icon">
+                <img src="images/icons/tel24-7_2.png" alt="">
+              </div>
+              <div class="media-body texts">
+                <h4>Lorem ipsum dolor sit</h4>
+                <h2>consectetur adipisicing</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 footFeature">
+            <div class="media m0">
+              <div class="media-left icon">
+                <img src="images/icons/shopping-bag2.png" alt="">
+              </div>
+              <div class="media-body texts">
+                <h4>Lorem ipsum dolor sit</h4>
+                <h2>consectetur adipisicing</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container line2">
+        <div class="row">
+          <div class="col-sm-3 widget">
+            <div class="row m0">
+              <h4>關於我們</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do e</p>
+              <ul class="list-inline">
+                <li>
+                  <a href="#">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-dribbble"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3 widget">
+            <div class="row m0">
+              <h4>網站導航</h4>
+              <ul class="nav">
+                <li>
+                  <a href="about.html">首頁</a>
+                </li>
+                <li>
+                  <a href="services.html">關於我們</a>
+                </li>
+                <li>
+                  <a href="blog.html">產品中心</a>
+                </li>
+                <li>
+                  <a href="#">聯繫我們</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3 widget">
+            <div class="row m0">
+              <h4>產品系列</h4>
+              <ul class="nav">
+                <li>
+                  <a href="#">Lorem ipsum</a>
+                </li>
+                <li>
+                  <a href="#">dolor sit</a>
+                </li>
+                <li>
+                  <a href="#">consectetur </a>
+                </li>
+                <li>
+                  <a href="#">adipisicing</a>
+                </li>
+                <li>
+                  <a href="#">sed do e</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3 widget">
+            <div class="row m0">
+              <h4>提出您的意見</h4>
+              <form action="subscriptionList.php" method="post" role="form">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                  <input type="email" class="form-control" id="subscribeEmail" name="subscribeEmail" placeholder="EMAIL 地址">
+                </div>
+                <input type="submit" class="form-control" value="發送" id="submit" name="submit">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row m0 copyRight">
+      <div class="container">
+        <div class="row">
+          <!-- <div class="fleft">Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></div> -->
+          <ul class="nav nav-pills fright">
+            <li>
+              <a href="index.html">首頁</a>
+            </li>
+            <li>
+              <a href="about.html">關於我們</a>
+            </li>
+            <li>
+              <a href="blog.html">產品中心</a>
+            </li>
+            <li>
+              <a href="contact.html">聯繫我們</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!--jQuery, Bootstrap and other vendor JS-->
+
+  <!--jQuery-->
+  <script src="js/jquery-2.1.3.min.js"></script>
+
+  <!--Bootstrap JS-->
+  <script src="js/bootstrap.min.js"></script>
+
+
+  <!--Bootstrap Select-->
+  <script src="vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+
+
+  <!--Owl Carousel-->
+  <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
+
+
+  <!--FlexSlider-->
+  <script src="vendors/flexslider/jquery.flexslider-min.js"></script>
+
+  <!--Strella JS-->
+  <script src="js/furniture.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.login-btn').click(function () {
+        $('.modalBox').modal('hide')
+        $('#loginModal').modal('show')
+      })
+      $('.res-btn').click(function () {
+        $('.modalBox').modal('hide')
+        $('#resModal').modal('show')
+      })
+    })
+  </script>
+</body>
+
+</html>
